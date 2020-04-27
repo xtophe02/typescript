@@ -85155,7 +85155,32 @@ function () {
 }();
 
 exports.Company = Company;
-},{"faker":"node_modules/faker/index.js"}],"src/index.ts":[function(require,module,exports) {
+},{"faker":"node_modules/faker/index.js"}],"src/Map.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var Map =
+/** @class */
+function () {
+  function Map(divId) {
+    var map = document.getElementById(divId);
+    this.googleMap = new google.maps.Map(map, {
+      zoom: 1,
+      center: {
+        lat: 0,
+        lng: 0
+      }
+    });
+  }
+
+  return Map;
+}();
+
+exports.Map = Map;
+},{}],"src/index.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -85166,19 +85191,14 @@ var User_1 = require("./User");
 
 var Company_1 = require("./Company");
 
+var Map_1 = require("./Map");
+
 var user = new User_1.User();
 var company = new Company_1.Company();
+new Map_1.Map("map");
 console.log(user);
 console.log(company);
-var map = document.getElementById("map");
-new google.maps.Map(map, {
-  zoom: 5,
-  center: {
-    lat: user.location.lat,
-    lng: user.location.lng
-  }
-});
-},{"./User":"src/User.ts","./Company":"src/Company.ts"}],"../../../../../../../usr/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./User":"src/User.ts","./Company":"src/Company.ts","./Map":"src/Map.ts"}],"../../../../../../../usr/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -85206,7 +85226,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "45857" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34855" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
