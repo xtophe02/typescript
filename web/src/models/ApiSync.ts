@@ -4,7 +4,7 @@ interface HasId {
   id?: number;
 }
 
-export class Sync<T extends HasId> {
+export class ApiSync<T extends HasId> {
   constructor(public rootUrl: string) {}
 
   fetch = (id: number): AxiosPromise<T> => {
@@ -13,7 +13,7 @@ export class Sync<T extends HasId> {
   save = (data: T): AxiosPromise<T> => {
     const { id } = data;
     if (id) {
-      return axios.put(`${this.rootUrl}/${id}`, data);
+      return axios.patch(`${this.rootUrl}/${id}`, data);
     }
     return axios.post(this.rootUrl, data);
   };

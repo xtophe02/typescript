@@ -1,5 +1,7 @@
 import { User } from "./models/User";
 
-const user = new User({ name: "teste", age: 0 });
-user.on("save", () => console.log(user));
-user.save();
+const all = User.buildCollection();
+
+all.on("fetch", () => console.log(all));
+
+all.fetch();
