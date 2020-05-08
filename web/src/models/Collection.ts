@@ -18,7 +18,7 @@ export class Collection<T, K> {
       res.data.forEach((value: K) => {
         this.models.push(this.deserialize(value));
       });
+      this.trigger("fetch");
     });
-    this.trigger("fetch");
   }
 }
