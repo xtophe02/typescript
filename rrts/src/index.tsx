@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 interface AppProps {
-  color: string;
+  color?: string;
 }
 
 class App extends React.Component<AppProps> {
